@@ -1,0 +1,13 @@
+.WeatherProperties ul {
+  list-style: none;
+}
+.WeatherProperties li {
+  font-size: 22px;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  line-height: 1em;
+}
+.WeatherProperties strong {
+  font-weight: 700;
+  font-size: 37px;
+}

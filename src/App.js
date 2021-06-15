@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import EnterCityForm from "./EnterCityForm";
+import WeatherProperties from "./WeatherProperties";
+import WeatherIcon from "./WeatherIcon";
+import Button from "./Button";
+import PlaceAndDate from "./PlaceAndDate";
+import Forecast from "./Forecast";
+import Footer from "./Footer";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <header>
+          <div className="row">
+            <div className="col-sm">
+              <EnterCityForm />
+            </div>
+            <div className="col-sm">
+              <WeatherProperties />
+            </div>
+            <div className="col-sm">
+              <WeatherIcon />
+            </div>
+          </div>
+          <div>
+            <Button />
+          </div>
+          <PlaceAndDate />
+        </header>
+        <br />
+        <main>
+          <Forecast />
+        </main>
+        <br />
+        <Footer />
+      </div>
     </div>
   );
 }
-
-export default App;
