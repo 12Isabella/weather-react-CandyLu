@@ -7,7 +7,7 @@ export default function Footer() {
         className="codeLink"
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/12Isabella/Weather-app-Darlene"
+        href="https://github.com/12Isabella/weather-react-CandyLu"
       >
         open source code{" "}
       </a>
