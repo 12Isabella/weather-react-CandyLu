@@ -12,6 +12,7 @@ import Footer from "./Footer";
 export default function App() {
   return (
     <div className="App">
+      <div className="interface">
       <div className="container">
         <header>
           <div className="row">
@@ -35,8 +36,11 @@ export default function App() {
           <Forecast />
         </main>
         <br />
-        <Footer />
+        
       </div>
+       </div>
+      <Footer />
     </div>
+    
   );
 }
