@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 import EnterCityForm from "./EnterCityForm";
 import WeatherProperties from "./WeatherProperties";
 import WeatherIcon from "./WeatherIcon";
