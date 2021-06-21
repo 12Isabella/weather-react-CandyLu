@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import "./styles.css";
-import "bootstrap/dist/css/bootstrap.min.css"
-import EnterCityForm from "./EnterCityForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 import WeatherProperties from "./WeatherProperties";
 import WeatherIcon from "./WeatherIcon";
 import Button from "./Button";
@@ -10,6 +10,28 @@ import Forecast from "./Forecast";
 import Footer from "./Footer";
 
 export default function App() {
+  let [city, setCity]= useState ("");
+
+function handleResponse (response) {
+  console.log (response.data);
+
+}
+
+function handleSubmit (event) {
+  event.preventDefault ();
+  search ();
+}
+
+ function handleCityChange(event) {
+setCity(event.target.value);
+  }
+
+function search () {
+  let apiKey = "2ac6514991aa99cb91e321c9b9758eb6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(handleResponse);
+}
+
   return (
     <div className="App">
       <div className="interface">
@@ -17,7 +39,19 @@ export default function App() {
         <header>
           <div className="row">
             <div className="col-sm">
-              <EnterCityForm />
+             <div className="input-group mb-3">
+      <div className="input-group-prepend"></div>
+      <form onSubmit={handleSubmit}>
+        <input onChange={handleCityChange} 
+          placeholder="Enter city"
+          type="text"
+          className="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          autoFocus="on"
+        />
+      </form>
+    </div>
             </div>
             <div className="col-sm">
               <WeatherProperties />
