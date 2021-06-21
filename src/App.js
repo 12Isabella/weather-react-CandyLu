@@ -10,11 +10,18 @@ import Forecast from "./Forecast";
 import Footer from "./Footer";
 
 export default function App() {
-  let [city, setCity]= useState ("");
+  let [city, setCity]= useState ("Oslo");
+  let [weatherData, setWeatherData]= useState("");
 
 function handleResponse (response) {
   console.log (response.data);
-
+  setWeatherData ({
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
+      wind: response.data.wind.speed,
+      feelslike: response.data.main.feels_like,
+       });
 }
 
 function handleSubmit (event) {
@@ -54,7 +61,7 @@ axios.get(apiUrl).then(handleResponse);
     </div>
             </div>
             <div className="col-sm">
-              <WeatherProperties />
+              <WeatherProperties data={weatherData} />
             </div>
             <div className="col-sm">
               <WeatherIcon />

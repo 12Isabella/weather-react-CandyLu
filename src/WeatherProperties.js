@@ -1,23 +1,19 @@
 import React from "react";
 import "./WeatherProperties.css";
-export default function WeatherProperties() {
-  let weatherData = {
-    temp: 22,
-    description: "Sunny",
-    humidity: 40,
-    wind: 1.3
-  };
+export default function WeatherProperties(props) {
+  
+  
   return (
     <div className="WeatherProperties">
       <ul>
         <li>
-          <strong>{weatherData.temp}</strong>
+          <strong>{props.data.temperature}</strong>
           <span>°C</span>
         </li>
-        <li>{weatherData.description}</li>
-        <li>Feels like: 14 C°</li>
-        <li>Humidity: {weatherData.humidity}%</li>
-        <li>Wind: {weatherData.wind} m/s</li>
+        <li>{props.data.description}</li>
+        <li>Feels like: {props.data.feelslike} C°</li>
+        <li>Humidity: {props.data.humidity}%</li>
+        <li>Wind: {props.data.wind} m/s</li>
       </ul>
     </div>
   );
