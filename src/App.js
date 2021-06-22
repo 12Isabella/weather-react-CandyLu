@@ -11,16 +11,22 @@ import Footer from "./Footer";
 
 export default function App() {
   let [city, setCity]= useState ("Oslo");
-  let [weatherData, setWeatherData]= useState("");
+  let [weatherData, setWeatherData]= useState({ready:false});
 
 function handleResponse (response) {
   console.log (response.data);
   setWeatherData ({
-      temperature: response.data.main.temp,
+    ready: true,
+      temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
-      feelslike: response.data.main.feels_like,
+      feelslike: Math.round(response.data.main.feels_like),
+      city: response.data.name,
+      icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000),
+
+
        });
 }
 
@@ -39,6 +45,7 @@ function search () {
 axios.get(apiUrl).then(handleResponse);
 }
 
+if (weatherData.ready){
   return (
     <div className="App">
       <div className="interface">
@@ -64,13 +71,13 @@ axios.get(apiUrl).then(handleResponse);
               <WeatherProperties data={weatherData} />
             </div>
             <div className="col-sm">
-              <WeatherIcon />
+              <WeatherIcon data={weatherData} />
             </div>
           </div>
           <div>
             <Button />
           </div>
-          <PlaceAndDate />
+          <PlaceAndDate data={weatherData}/>
         </header>
         <br />
         <main>
@@ -84,4 +91,7 @@ axios.get(apiUrl).then(handleResponse);
     </div>
     
   );
+} else {
+  search ();
+  return "Loading..."}
 }

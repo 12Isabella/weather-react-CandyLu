@@ -1,8 +1,9 @@
 import React from "react";
 import "./WeatherIcon.css";
-export default function WeatherIcon() {
+export default function WeatherIcon(props) {
+  console.log (props.data.icon)
   let weatherData = {
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+    imgUrl: props.data.icon
   };
   return <img className="WeatherIcon" src={weatherData.imgUrl} alt="Clear" />;
 }
