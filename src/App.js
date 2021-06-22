@@ -24,6 +24,7 @@ function handleResponse (response) {
       feelslike: Math.round(response.data.main.feels_like),
       city: response.data.name,
       icon: response.data.weather[0].icon,
+      date: new Date (response.data.dt * 1000),
     
 
        });
