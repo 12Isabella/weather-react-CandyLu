@@ -1,9 +1,9 @@
 import React from "react";
 import "./WeatherIcon.css";
 export default function WeatherIcon(props) {
-  console.log (props.data.icon)
   let weatherData = {
-    imgUrl: props.data.icon
+    imgUrl: `https://openweathermap.org/img/wn/${props.data.icon}.png`
   };
-  return <img className="WeatherIcon" src={weatherData.imgUrl} alt="Clear" />;
+  return <img className="WeatherIcon" src={weatherData.imgUrl} />;
+ 
 }
