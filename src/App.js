@@ -25,6 +25,7 @@ function handleResponse (response) {
       city: response.data.name,
       icon: response.data.weather[0].icon,
       date: new Date (response.data.dt * 1000),
+      coordinates: response.data.coord,
     
 
        });
@@ -81,7 +82,7 @@ if (weatherData.ready){
         </header>
         <br />
         <main>
-          <Forecast />
+          <Forecast coordinates={weatherData.coordinates} />
         </main>
         <br />
         
