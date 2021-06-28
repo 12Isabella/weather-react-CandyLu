@@ -1,27 +1,27 @@
 import React, {useState} from "react";
 import "./Forecast.css";
-import WeatherIcon from "./WeatherIcon";
+
 import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function Forecast(props) {
 
-  //let [forecastLoaded, setForecastLoaded]= useState(false);
-  let [coordinates, setCoordinates] = useState(""); 
+  let [ForecastLoaded, setForecastLoaded]= useState(false);
+ 
+  let [forecast, setForecast] = useState(null);
   
 function handleCall (response) {
   console.log(`handleForecastCall`, response.data);
-  setCoordinates (props.coordinates);
+  setForecastLoaded (true);
+  setForecast(response.data.daily);
 }
 
-if (props.coordinates === coordinates ) {
+if (ForecastLoaded) {
+  console.log (forecast);
   return (<div className="Forecast">
     <div className="row">
       <div className="col">
-        <div className="ForecastDay"> Thu </div>
-  <WeatherIcon  data={{icon:"02d"}} size={50}/>
-       <div className="ForecastTemp">
-    <span>19° </span>|<span> 10°</span>
-    </div>
+        <WeatherForecastDay data={forecast[0]} />
         </div>
       </div>
     </div>); } else {

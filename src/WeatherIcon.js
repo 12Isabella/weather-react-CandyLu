@@ -3,6 +3,7 @@ import React from "react";
 
 
 export default function WeatherIcon(props) {
+  
   let weatherData = {
     imgUrl: `https://openweathermap.org/img/wn/${props.data.icon}@2x.png`
   };
