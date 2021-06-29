@@ -3,7 +3,6 @@ import "./Forecast.css";
 
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
-
 export default function Forecast(props) {
 
   let [ForecastLoaded, setForecastLoaded]= useState(false);
@@ -12,8 +11,9 @@ export default function Forecast(props) {
   
 function handleCall (response) {
   console.log(`handleForecastCall`, response.data);
-  setForecastLoaded (true);
   setForecast(response.data.daily);
+  console.log (forecast);
+  setForecastLoaded (true);
 }
 
 if (ForecastLoaded) {
@@ -21,7 +21,7 @@ if (ForecastLoaded) {
   return (<div className="Forecast">
     <div className="row">
       <div className="col">
-        <WeatherForecastDay data={forecast[0]} />
+  <WeatherForecastDay data={forecast[0]} />      
         </div>
       </div>
     </div>); } else {

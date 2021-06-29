@@ -72,7 +72,7 @@ if (weatherData.ready){
               <WeatherProperties data={weatherData} />
             </div>
             <div className="col-sm">
-              <WeatherIcon data={weatherData} size={100} />
+              <WeatherIcon icon={weatherData.icon} size={100} />
             </div>
           </div>
           <div>
