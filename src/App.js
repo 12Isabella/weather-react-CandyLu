@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import WeatherProperties from "./WeatherProperties";
 import WeatherIcon from "./WeatherIcon";
-import Button from "./Button";
 import PlaceAndDate from "./PlaceAndDate";
 import Forecast from "./Forecast";
 import Footer from "./Footer";
@@ -14,7 +13,6 @@ export default function App() {
   let [weatherData, setWeatherData]= useState({ready:false});
 
 function handleResponse (response) {
-  console.log (response.data);
   setWeatherData ({
     ready: true,
       temperature: Math.round(response.data.main.temp),
@@ -74,9 +72,6 @@ if (weatherData.ready){
             <div className="col-sm">
               <WeatherIcon icon={weatherData.icon} size={100} />
             </div>
-          </div>
-          <div>
-            <Button />
           </div>
           <PlaceAndDate data={weatherData}/>
         </header>

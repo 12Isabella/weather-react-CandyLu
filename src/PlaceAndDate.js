@@ -1,7 +1,7 @@
 import React from "react";
 import "./PlaceAndDate.css";
 export default function PlaceAndDate(props) {
-  console.log (props.data.date);
+  
   let days = [
     "Sunday",
     "Monday",

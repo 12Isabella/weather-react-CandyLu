@@ -1,6 +1,6 @@
 import React from "react";
 import "./WeatherProperties.css";
-import TemperatureConversion from  "./TemperatureConversion";
+import Temperature from  "./Temperature";
 export default function WeatherProperties(props) {
   
   
@@ -8,7 +8,7 @@ export default function WeatherProperties(props) {
     <div className="WeatherProperties">
       <ul>
         <li>
-         <TemperatureConversion celsius={props.data.temperature}/>
+         <Temperature celsius={props.data.temperature}/>
           </li>
         <li>{props.data.description}</li>
         <li>Feels like: {props.data.feelslike} C°</li>
