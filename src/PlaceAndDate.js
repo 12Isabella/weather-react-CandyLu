@@ -1,7 +1,6 @@
 import React from "react";
 import "./PlaceAndDate.css";
 export default function PlaceAndDate(props) {
-  
   let days = [
     "Sunday",
     "Monday",
@@ -9,24 +8,24 @@ export default function PlaceAndDate(props) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
   let day = days[props.data.date.getDay()];
   let hours = props.data.date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  
+
   let minutes = props.data.date.getMinutes();
   if (minutes < 10) {
-    minutes = `0${minutes}`;}
+    minutes = `0${minutes}`;
+  }
   return (
     <div className="PlaceAndDate">
       <h1>{props.data.city}</h1>
       <h2>
-      
-      {day} {hours}:{minutes}
-    </h2>
+        {day} {hours}:{minutes}
+      </h2>
     </div>
   );
 }
